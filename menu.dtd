@@ -1,0 +1,9 @@
+<!ELEMENT menu (category+)>
+<!ELEMENT category (item+)>
+<!ATTLIST category type (Meals|Beverages) #REQUIRED>
+<!ELEMENT item (name, price, description, image)>
+<!ATTLIST item id ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT image (#PCDATA)>

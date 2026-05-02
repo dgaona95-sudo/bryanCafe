@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bryan's Café</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+    <a href="index.html" class="logo">
+        <img src="assets/logo.png" alt="Bryan's Café Gold Logo">
+    </a>
+    
+    <ul>
+        <li><a href="index.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    </nav>
+
+    <header class="hero-small">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you. Visit us or send a message.</p>
+    </header>
+
+    <main class="container">
+        <div class="contact-wrapper">
+            <section class="contact-form-section">
+                <h2>Send an Enquiry</h2>
+                <form id="enquiryForm" class="professional-form">
+                    <div class="form-row">
+                        <input type="text" id="firstName" placeholder="First Name" required>
+                        <input type="text" id="lastName" placeholder="Last Name" required>
+                    </div>
+                    <input type="email" id="email" placeholder="Email Address" required>
+                    <input type="text" id="subject" placeholder="Message Subject" required>
+                    <textarea id="message" rows="6" placeholder="How can we help you?" required></textarea>
+                    <button type="submit" class="btn-gold">SEND MESSAGE</button>
+                </form>
+            </section>
+
+            <section class="branches-section">
+                <h2>Our Locations</h2>
+                <div id="branches-display">
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Bryan’s Café | <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Lógica específica para cargar sucursales en esta página
+        document.addEventListener('DOMContentLoaded', () => {
+            loadBranches();
+            
+            // Requerimiento: Feedback al enviar formulario
+            document.getElementById('enquiryForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert("Thank you! Your message has been sent successfully. Our team will contact you shortly.");
+                e.target.reset();
+            });
+        });
+
+        async function loadBranches() {
+            try {
+                const response = await fetch('branches.xml');
+                const text = await response.text();
+                const xml = new DOMParser().parseFromString(text, "text/xml");
+                const branches = xml.querySelectorAll('branch');
+                const display = document.getElementById('branches-display');
+                
+                let html = '';
+                branches.forEach(b => {
+                    html += `
+                        <div class="branch-card">
+                            <h3>${b.querySelector('address').textContent}</h3>
+                            <p><strong>Phone:</strong> ${b.querySelector('contact').textContent}</p>
+                            <p><strong>Hours:</strong> ${b.querySelector('opening_hours').textContent}</p>
+                            <a href="${b.querySelector('map_link').textContent}" target="_blank" class="map-link">View on Google Maps →</a>
+                        </div>
+                    `;
+                });
+                display.innerHTML = html;
+            } catch (err) {
+                console.error("Error loading branches:", err);
+            }
+        }
+    </script>
+</body>
+</html>

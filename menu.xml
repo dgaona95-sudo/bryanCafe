@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <category type="Brunch">
+        <item id="B001">
+            <name>Classic Eggs Benedict</name>
+            <price>22.50</price>
+            <description>Poached eggs on artisanal sourdough with wilted spinach and homemade hollandaise sauce.</description>
+            <image>assets/brunch-eggs.jpg</image>
+        </item>
+        <item id="B002">
+            <name>Smashed Avocado &amp; Feta</name>
+            <price>19.00</price>
+            <description>Fresh avocado with Danish feta, pomegranate seeds, and lemon oil on toasted rye.</description>
+            <image>assets/brunch-avo.jpg</image>
+        </item>
+        <item id="B003">
+            <name>Truffle Mushroom Medley</name>
+            <price>24.00</price>
+            <description>Sautéed seasonal mushrooms with truffle butter, thyme, and a soft poached egg.</description>
+            <image>assets/brunch-mushrooms.jpg</image>
+        </item>
+        <item id="B004">
+            <name>Belgian Waffle Stack</name>
+            <price>21.00</price>
+            <description>Triple stack waffles with mixed berry compote, maple syrup, and vanilla bean mascarpone.</description>
+            <image>assets/brunch-waffles.jpg</image>
+        </item>
+        <item id="B005">
+            <name>Acai Power Bowl</name>
+            <price>18.50</price>
+            <description>Organic acai blend topped with gluten-free granola, seasonal fruits, and chia seeds.</description>
+            <image>assets/brunch-acai.jpg</image>
+        </item>
+        <item id="B006">
+            <name>Spanish Chorizo Omelette</name>
+            <price>23.00</price>
+            <description>Three-egg omelette with spicy chorizo, Manchego cheese, and caramelized onions.</description>
+            <image>assets/brunch-omelette.jpg</image>
+        </item>
+        <item id="B007">
+            <name>Smoked Salmon Bagel</name>
+            <price>20.50</price>
+            <description>Tasmanian smoked salmon with dill cream cheese, capers, and red onion on a toasted bagel.</description>
+            <image>assets/brunch-salmon.jpg</image>
+        </item>
+        <item id="B008">
+            <name>Zucchini &amp; Corn Fritters</name>
+            <price>22.00</price>
+            <description>Crispy fritters served with tomato relish, bacon, and a side of fresh rocket.</description>
+            <image>assets/brunch-fritters.jpg</image>
+        </item>
+    </category>
+
+    <category type="Drinks">
+        <item id="D001">
+            <name>Signature Latte</name>
+            <price>5.50</price>
+            <description>House-blend espresso with silky textured milk and artisan latte art.</description>
+            <image>assets/drink-latte.jpg</image>
+        </item>
+        <item id="D002">
+            <name>12-Hour Cold Brew</name>
+            <price>7.00</price>
+            <description>Single-origin beans steeped for 12 hours for a smooth, chocolatey finish.</description>
+            <image>assets/drink-coldbrew.jpg</image>
+        </item>
+        <item id="D003">
+            <name>Iced Matcha Latte</name>
+            <price>7.50</price>
+            <description>Premium ceremonial grade matcha whisked with honey and milk over ice.</description>
+            <image>assets/drink-matcha.jpg</image>
+        </item>
+    </category>
+</menu>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE branches SYSTEM "branches.dtd">
+<branches>
+    <branch>
+        <address>76 Devonshire St, Surry Hills NSW 2010</address>
+        <contact>(02) 9211 1234</contact>
+        <opening_hours>Mon-Fri: 6:00 to 14:30 | Sat-Sun: 7:00 to 14:00</opening_hours>
+        <map_link>https://goo.gl/maps/example1</map_link>
+    </branch>
+    <branch>
+        <address>123 Pitt St, Sydney NSW 2000</address>
+        <contact>(02) 9222 5678</contact>
+        <opening_hours>Mon-Fri: 7:00 to 16:00 | Sat: 8:00 to 13:00</opening_hours>
+        <map_link>https://goo.gl/maps/example2</map_link>
+    </branch>
+    <branch>
+        <address>45 Glebe Point Rd, Glebe NSW 2037</address>
+        <contact>(02) 9555 9012</contact>
+        <opening_hours>Daily: 7:00 to 15:00</opening_hours>
+        <map_link>https://goo.gl/maps/example3</map_link>
+    </branch>
+</branches>
