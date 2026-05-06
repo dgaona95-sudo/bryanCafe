@@ -3,93 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Bryan's Café</title>
+    <title>Contact | Bryan's Café</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
+    <header>
     <a href="index.html" class="logo">
-        <img src="assets/logo.png" alt="Bryan's Café Gold Logo">
+        <!-- Verifica que el nombre sea logo.png o logo.jpg -->
+        <img src="assets/logo.png" alt="Bryan's Café Logo" style="height: 100%; max-height: 120px;">
     </a>
-    
-    <ul>
-        <li><a href="index.html">About</a></li>
-        <li><a href="menu.html">Menu</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <nav>
+        <ul>
+            <li><a href="index.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
     </nav>
-
-    <header class="hero-small">
-        <h1>Contact Us</h1>
-        <p>We’d love to hear from you. Visit us or send a message.</p>
     </header>
 
-    <main class="container">
+    <main>
+        <h1 class="section-title">Get in Touch & Locations</h1>
         <div class="contact-wrapper">
-            <section class="contact-form-section">
-                <h2>Send an Enquiry</h2>
-                <form id="enquiryForm" class="professional-form">
-                    <div class="form-row">
-                        <input type="text" id="firstName" placeholder="First Name" required>
-                        <input type="text" id="lastName" placeholder="Last Name" required>
-                    </div>
-                    <input type="email" id="email" placeholder="Email Address" required>
-                    <input type="text" id="subject" placeholder="Message Subject" required>
-                    <textarea id="message" rows="6" placeholder="How can we help you?" required></textarea>
-                    <button type="submit" class="btn-gold">SEND MESSAGE</button>
+            <!-- Formulario a la izquierda -->
+            <div>
+                <h2 style="margin-bottom: 1rem;">Send an Enquiry</h2>
+                <form id="contact-form">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email Address" required>
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">SUBMIT ENQUIRY</button>
                 </form>
-            </section>
-
-            <section class="branches-section">
-                <h2>Our Locations</h2>
-                <div id="branches-display">
-                    </div>
-            </section>
+            </div>
+            
+            <!-- Sucursales a la derecha -->
+            <div>
+                <h2 style="margin-bottom: 1rem;">Our Branches</h2>
+                <!-- El JS inyectará las sucursales aquí -->
+                <div id="dynamic-branches">Loading locations...</div>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; <span id="year"></span> Bryan’s Café | <a href="privacy.html" target="_blank">Privacy Policy</a></p>
+        <p>&copy; <span id="current-year"></span> Bryan's Café. All rights reserved.</p>
+        <p><a href="privacy.html" target="_blank">Privacy Policy</a></p>
     </footer>
-
     <script src="app.js"></script>
-    <script>
-        // Lógica específica para cargar sucursales en esta página
-        document.addEventListener('DOMContentLoaded', () => {
-            loadBranches();
-            
-            // Requerimiento: Feedback al enviar formulario
-            document.getElementById('enquiryForm').addEventListener('submit', (e) => {
-                e.preventDefault();
-                alert("Thank you! Your message has been sent successfully. Our team will contact you shortly.");
-                e.target.reset();
-            });
-        });
-
-        async function loadBranches() {
-            try {
-                const response = await fetch('branches.xml');
-                const text = await response.text();
-                const xml = new DOMParser().parseFromString(text, "text/xml");
-                const branches = xml.querySelectorAll('branch');
-                const display = document.getElementById('branches-display');
-                
-                let html = '';
-                branches.forEach(b => {
-                    html += `
-                        <div class="branch-card">
-                            <h3>${b.querySelector('address').textContent}</h3>
-                            <p><strong>Phone:</strong> ${b.querySelector('contact').textContent}</p>
-                            <p><strong>Hours:</strong> ${b.querySelector('opening_hours').textContent}</p>
-                            <a href="${b.querySelector('map_link').textContent}" target="_blank" class="map-link">View on Google Maps →</a>
-                        </div>
-                    `;
-                });
-                display.innerHTML = html;
-            } catch (err) {
-                console.error("Error loading branches:", err);
-            }
-        }
-    </script>
 </body>
 </html>

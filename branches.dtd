@@ -1,6 +1,5 @@
 <!ELEMENT branches (branch+)>
-<!ELEMENT branch (address, contact, opening_hours, map_link)>
+<!ELEMENT branch (address, contact, opening_hours)>
 <!ELEMENT address (#PCDATA)>
 <!ELEMENT contact (#PCDATA)>
 <!ELEMENT opening_hours (#PCDATA)>
-<!ELEMENT map_link (#PCDATA)>

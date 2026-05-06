@@ -1,9 +1,13 @@
-<!ELEMENT menu (category+)>
-<!ELEMENT category (item+)>
-<!ATTLIST category type (Meals|Beverages) #REQUIRED>
-<!ELEMENT item (name, price, description, image)>
-<!ATTLIST item id ID #REQUIRED>
+<!ELEMENT menu (meals, beverages)>
+<!ELEMENT meals (item+)>
+<!ELEMENT beverages (coffee_and_hot_chocolates, other_beverages)>
+<!ELEMENT coffee_and_hot_chocolates (note, item+)>
+<!ELEMENT other_beverages (item+)>
+
+<!ELEMENT item (name?, size?, price, description?, image)>
 <!ELEMENT name (#PCDATA)>
+<!ELEMENT size (#PCDATA)>
 <!ELEMENT price (#PCDATA)>
 <!ELEMENT description (#PCDATA)>
 <!ELEMENT image (#PCDATA)>
+<!ELEMENT note (#PCDATA)>

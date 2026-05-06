@@ -1,253 +1,187 @@
-/* BRYAN'S CAFÉ - SOPHISTICATED INDUSTRIAL STYLE */
 :root {
-    /* Paleta de Colores de Marca */
-    --bryan-primary: #1a1a1a;    /* Onyx (Oscuro Principal) */
-    --bryan-accent: #c5a059;     /* Deep Gold (Acento Dorado) */
-    --bryan-terracotta: #b85c38; /* Terracotta (Cálido para acentos) */
-    --bryan-cream: #f9f9f7;      /* Cream (Fondo Suave) */
-    --bryan-white: #ffffff;
-    
-    /* Variables de Diseño */
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --bryan-dark: #1a1a1a;
+    --bryan-gold: #c5a059;
+    --bryan-cream: #f9f9f7;
+    --bryan-accent: #b85c38;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
     background-color: var(--bryan-cream);
     color: #333;
-    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* --- Navegación --- */
-nav {
+/* NAVBAR DE 120px (Requerimiento) */
+header {
+    background-color: var(--bryan-dark);
+    height: 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* Eliminamos padding vertical para que la barra no crezca más que el logo */
-    padding: 0 8%; 
-    background-color: #1a1a1a;
-    border-bottom: 2px solid var(--bryan-accent);
+    padding: 0 5%;
+    border-bottom: 3px solid var(--bryan-gold);
     position: sticky;
     top: 0;
     z-index: 1000;
-    /* Forzamos la altura total de la barra a 120px */
-    height: 120px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
-/* --- Ajuste de Logo Premium --- */
 .logo {
-    display: flex;
-    align-items: center;
-    padding: 15px 0; /* Un poco más de aire vertical */
+    color: var(--bryan-gold);
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
     text-decoration: none;
-}
-
-.logo img {
-    /* Aumentamos el tamaño para que el dorado sea el protagonista */
-    height: 120px; 
-    width: auto;
-    
-    /* Mantenemos el filtro de brillo para que resalte sobre el negro */
-    filter: drop-shadow(0 0 8px rgba(197, 160, 89, 0.4));
-    
-    transition: transform 0.3s ease;
-}
-
-/* Efecto sutil al pasar el mouse sobre el logo */
-.logo:hover img {
-    transform: scale(1.05);
-}
-
-/* Ajuste para pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-    .logo img {
-        height: 65px; /* Un poco más pequeño en móvil para no ocupar toda la pantalla */
-    }
 }
 
 nav ul {
-    display: flex;
     list-style: none;
-    gap: 3rem;
+    display: flex;
+    gap: 2rem;
 }
 
 nav a {
-    text-decoration: none;
-    color: var(--bryan-cream); /* Crema suave para el texto en fondo oscuro */
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1.5px;
-    transition: var(--transition);
-    position: relative;
-    padding: 5px 0;
-}
-
-nav a:hover { color: var(--bryan-terracotta); }
-
-/* --- Secciones de Encabezado (Heros) --- */
-.hero {
-    text-align: center;
-    padding: 6rem 10%;
-    background-color: var(--bryan-white);
-    border-bottom: 1px solid #eee;
-    margin-bottom: 3rem;
-}
-
-.hero h1 {
-    font-size: 3.5rem;
-    letter-spacing: -2px;
-    color: var(--bryan-primary);
-    margin-bottom: 0.5rem;
-}
-
-.hero p { color: #666; font-size: 1.1rem; }
-
-/* --- Grid de Menú y Tarjetas (Cards) --- */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 3rem;
-    padding-bottom: 5rem;
-}
-
-.card {
-    background: var(--bryan-white);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: var(--transition);
-    border: 1px solid rgba(0,0,0,0.03);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-}
-
-.card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(184, 92, 56, 0.1); /* Sombra de color Terracotta */
-}
-
-/* Contenedor de imagen para cargar desde XML */
-.card-img {
-    width: 100%;
-    height: 250px;
-    background-size: cover;
-    background-position: center;
-    background-color: #ddd; /* Color de carga */
-}
-
-.card-body { padding: 2rem; }
-
-.card-price {
-    color: var(--bryan-terracotta); /* Precio en color de acento */
-    font-weight: 800;
-    font-size: 1.3rem;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.card-title { font-size: 1.5rem; margin-bottom: 1rem; color: var(--bryan-primary); }
-
-/* --- Formulario de Contacto --- */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 4rem;
-    padding-bottom: 5rem;
-}
-
-.professional-form {
-    background: var(--bryan-white);
-    padding: 3rem;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.form-row { display: flex; gap: 1rem; }
-
-input, textarea {
-    width: 100%;
-    padding: 1.2rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--bryan-terracotta);
-    outline: none;
-}
-
-.btn-gold {
-    background: var(--bryan-accent);
-    color: var(--bryan-primary);
-    border: none;
-    padding: 1.2rem 2.5rem;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: var(--transition);
-    width: 100%;
-}
-
-.btn-gold:hover { background: var(--bryan-terracotta); color: var(--bryan-white); }
-
-/* --- Sucursales (Branches) --- */
-.branch-card {
-    background: var(--bryan-white);
-    padding: 2rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    border-left: 5px solid var(--bryan-accent); /* Acento dorado */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-}
-
-.branch-card h3 { color: var(--bryan-primary); margin-bottom: 1rem; }
-
-/* --- Footer --- */
-footer {
-    padding: 3rem;
-    text-align: center;
-    background: var(--bryan-primary);
     color: var(--bryan-cream);
-    font-size: 0.9rem;
-    border-top: 4px solid var(--bryan-terracotta);
-}
-
-footer a {
-    color: var(--bryan-accent);
     text-decoration: none;
     font-weight: 600;
-}
-
-/* --- Responsividad --- */
-@media (max-width: 900px) {
-    nav ul { gap: 1rem; }
-    .hero h1 { font-size: 2.5rem; }
-    .contact-wrapper { grid-template-columns: 1fr; }
-    .form-row { flex-direction: column; gap: 0; }
-}
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--bryan-accent); /* Dorado */
-    transition: var(--transition);
+    font-size: 1.1rem;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: var(--bryan-accent); /* El texto cambia a dorado */
+    color: var(--bryan-gold);
 }
 
-nav a:hover::after {
+/* SECCIONES Y CONTENEDORES */
+main {
+    flex: 1;
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
     width: 100%;
+}
+
+.section-title {
+    color: var(--bryan-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+/* GRID PARA EL MENÚ Y SUCURSALES */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--bryan-gold);
+}
+
+.card h3 { color: var(--bryan-dark); margin-bottom: 10px; }
+.card .price { color: var(--bryan-accent); font-weight: bold; font-size: 1.2rem; display: block; margin-bottom: 10px; }
+.card p { color: #555; font-size: 0.95rem; }
+
+/* ESTILOS PARA FORMULARIO DE CONTACTO */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper { grid-template-columns: 1fr; }
+    nav ul { gap: 1rem; }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+button {
+    background-color: var(--bryan-gold);
+    color: var(--bryan-dark);
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+button:hover { background-color: var(--bryan-accent); color: #fff; }
+
+/* FOOTER */
+footer {
+    background-color: var(--bryan-dark);
+    color: var(--bryan-cream);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+footer a { color: var(--bryan-gold); text-decoration: none; }
+
+/* ESTILOS PARA LAS IMÁGENES DEL MENÚ */
+.card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Esto evita que las imágenes se deformen */
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+/* BANNER DE FONDO PARA EL ABOUT (INDEX) */
+.hero-about {
+    /* Asegúrate de que el archivo se llame cafe-background.jpg exactamente */
+    background-image: linear-gradient(rgba(26, 26, 26, 0.75), rgba(26, 26, 26, 0.75)), url('assets/cafe-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 400px; /* Altura mínima para asegurar que se vea */
+    color: var(--bryan-cream);
+    padding: 6rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-about p {
+    color: var(--bryan-cream);
+    font-size: 1.1rem;
 }

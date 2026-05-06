@@ -2,21 +2,18 @@
 <!DOCTYPE branches SYSTEM "branches.dtd">
 <branches>
     <branch>
-        <address>76 Devonshire St, Surry Hills NSW 2010</address>
-        <contact>(02) 9211 1234</contact>
-        <opening_hours>Mon-Fri: 6:00 to 14:30 | Sat-Sun: 7:00 to 14:00</opening_hours>
-        <map_link>https://goo.gl/maps/example1</map_link>
+        <address>76 Devonshire St, Surry Hills NSW</address>
+        <contact>02 9211 1234</contact>
+        <opening_hours>Mon - Fri: 6:00 to 14:30, Sat-Sun: 7:00 to 15:00</opening_hours>
     </branch>
     <branch>
-        <address>123 Pitt St, Sydney NSW 2000</address>
-        <contact>(02) 9222 5678</contact>
-        <opening_hours>Mon-Fri: 7:00 to 16:00 | Sat: 8:00 to 13:00</opening_hours>
-        <map_link>https://goo.gl/maps/example2</map_link>
+        <address>451 Pitt St, Haymarket Sydney, NSW</address>
+        <contact>02 9262 5678</contact>
+        <opening_hours>Mon - Fri: 6:00 to 16:00, Sat-Sun: 7:00 to 15:00</opening_hours>
     </branch>
     <branch>
-        <address>45 Glebe Point Rd, Glebe NSW 2037</address>
-        <contact>(02) 9555 9012</contact>
-        <opening_hours>Daily: 7:00 to 15:00</opening_hours>
-        <map_link>https://goo.gl/maps/example3</map_link>
+        <address>31 Alfred Street, Circular Quay, NSW</address>
+        <contact>02 8971 9101</contact>
+        <opening_hours>Mon - Fri: 6:00 to 16:00, Sat-Sun: 7:00 to 15:00</opening_hours>
     </branch>
 </branches>
